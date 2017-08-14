@@ -1,8 +1,14 @@
 import React from 'react';
-import Component from './screens/Contacts';
+import { Platform } from 'react-native';
+
+import { Tabs, Drawer } from './config/router.js';
 
 const App = () => {
-  return <Component />;
+  if (Platform.OS === 'ios') {
+    return <Tabs />
+
+  }
+  return <Drawer />;
 };
 
 export default App;
