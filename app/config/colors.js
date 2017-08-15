@@ -1,9 +1,10 @@
 export default {
-  background: '#1789FC',
-  backgroundSecondary: '#2324FB',
+  background: '#ffffff',
+  backgroundSecondary: '#ffffff',
+  button: '#011eff',
   primaryText: '#283e4a',
   subtleText: '#283e4a',
-  secondaryText: '#ffffff',
+  secondaryText: '#283e4a',
   rowUnderlay: 'rgba(154, 154, 154, 0.75)',
   border: '#ebebeb',
   grayBackground: '#f9f9f9',

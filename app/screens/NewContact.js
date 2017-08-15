@@ -41,7 +41,7 @@ class NewContact extends Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView style={{ backgroundColor: colors.secondaryText }}>
+      <KeyboardAwareScrollView style={{ backgroundColor: colors.background }}>
       {
         fields.map((field, index) => (
           <TextInput

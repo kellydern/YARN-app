@@ -9,9 +9,9 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   PrimaryButton: {
-    borderColor: colors.background,
+    borderColor: colors.button,
     borderWidth: StyleSheet.hairlineWidth,
-    backgroundColor: colors.background,
+    backgroundColor: colors.button,
   },
   primaryButtonText: {
     paddingVertical: 15,
