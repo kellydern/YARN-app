@@ -15,7 +15,7 @@ export default StyleSheet.create({
   },
   primaryButtonText: {
     paddingVertical: 15,
-    paddingHorizontal: 45,
+    paddingHorizontal: 55,
     color: '#fff',
     fontSize: 14,
     fontWeight: '500',
