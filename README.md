@@ -1,5 +1,8 @@
 Prototype for YARN app
 
+Walkthrough of all user stories:
+<img src="https://github.com/kellydern/YARN-app/blob/master/react.gif">
+
 ## Requirements
 Have React Native installed on your machine. [Instructions](https://facebook.github.io/react-native/docs/getting-started.html).
 
