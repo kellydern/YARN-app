@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import colors from '../config/colors';
 import { TextInput } from '../components/TextInput';
@@ -9,10 +10,12 @@ import { PrimaryButton } from '../components/Buttons';
 const fields = [
   { placeholder: 'First Name', stateKey: 'firstName' },
   { placeholder: 'Last Name', stateKey: 'lasttName' },
-    { placeholder: 'Email', stateKey: 'email', keyboardType: 'email-address' },
+  { placeholder: 'Email', stateKey: 'email', keyboardType: 'email-address' },
   { placeholder: 'Mobile Phone', stateKey: 'mobilePhone' },
   { placeholder: 'City', stateKey: 'city' },
   { placeholder: 'Birthday', stateKey: 'birthday' },
+  { placeholder: 'Registered', stateKey: 'registered' },
+  { placeholder: 'Username', stateKey: 'username' },
 ];
 
 class NewContact extends Component {
@@ -27,18 +30,26 @@ class NewContact extends Component {
     this.setState(mod);
   }
 
-  handleSubmit = () => {
-    alert('Submit');
+  handleSubmit = (index, override = false) => {
+    if (index === fields.length - 1 || override) {
+        alert('Submit');
+    } else {
+      const nextField = fields [index + 1];
+      this[nextField.stateKey].focus();
+    }
   };
 
   render() {
     return (
-      <ScrollView style={{ backgroundColor: colors.secondaryText }}>
+      <KeyboardAwareScrollView style={{ backgroundColor: colors.secondaryText }}>
       {
-        fields.map((field) => (
+        fields.map((field, index) => (
           <TextInput
           key={field.stateKey}
           onChange={(text) => this.onInputChange(text, field.stateKey)}
+          returnKeyType={index === fields.length -1 ? 'done' : 'next'}
+          onSubmitEditing={() => this.handleSubmit(index)}
+          ref={(input) => this[field.stateKey] = input}
           {...field}
           />
         ))
@@ -46,10 +57,10 @@ class NewContact extends Component {
       <View style={{ marginTop: 20}}>
       <PrimaryButton
         label="Save"
-        onPress={() => this.handleSubmit()}
+        onPress={() => this.handleSubmit(0, true)}
       />
       </View>
-        </ScrollView>
+        </KeyboardAwareScrollView>
     );
   }
 }
